@@ -1,0 +1,41 @@
+This repository contains the interaction files used in
+
+S.R. Stroberg, H. Hergert, J.D. Holt, S.K. Bogner, and A. Schwenk,  PRC(R) xxxx (2016)
+  arxiv 1511.02802
+
+The files are in the format used by NuShellX@MSU [1].
+The *.int files contain the interaction.
+All lines beginning with ! are comment lines.
+The first non-comment line is
+{ignored integer} {spe for orbit 1} {spe for orbit 2} ... {spe for orbit N} {A_core} {Z_core} {A dependent scaling exponent}
+
+where N is the number of single-particle orbits.
+All lines thereafter are of the form
+
+a   b   c   d    J   T'     <abJT' | V | c d JT'>
+
+where a,b,c,d are integer indices labeling the valence orbits, J is the total angular momentum,
+and T' is an isospin-like parameter used by NuShellX, and V is the two-body interaction.
+
+
+
+Note that the proton-neutron two-body matrix elements (TBME) are un-normalized,
+while the proton-proton and neutron-neutron TBME are normalized.
+To obtain the normalized TBME, take
+
+<aaJ| V |ccJ>_npn    =           <aaJ| V |ccJ>_upn
+<abJ| V |ccJ>_npn    = 1/sqrt(2) <abJ| V |ccJ>_upn
+<aaJ| V |cdJ>_npn    = 1/sqrt(2) <aaJ| V |cdJ>_upn
+<abJ| V |cdJ>_npn    = 1/2       <abJ| V |cdJ>_upn
+
+
+
+
+The *.sp files are used by NuShellX to define the single-particle orbits.
+
+
+Files in the TargetedNormalOrdering directory were obtained using the reference indicated in the file name.
+
+
+-------------------------------------------------------------------------------------------------
+[1] B. A. Brown and W. D. M. Rae, Nucl. Data Sheets 120, 115 (2014).
