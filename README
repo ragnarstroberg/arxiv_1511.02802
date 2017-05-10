@@ -36,6 +36,17 @@ The *.sp files are used by NuShellX to define the single-particle orbits.
 
 Files in the TargetedNormalOrdering directory were obtained using the reference indicated in the file name.
 
+*********************************************************************************************************************************************
+Note that for the calculations made to generate these interactions, the first step is a transformation to the Hartree-Fock basis.
+This transformation is defined up to a phase factor, which is arbitrary, and if uncorrected is dictated by the details of the
+method used to diagonalize the Fock matrix. The interactions files in the main working directory (those staring with SD_e14...), are
+not corrected. This has no impact on the resulting eigenvalues, but if one wishes to compare to other interactions, e.g. USD, or to
+calculate the expectation value of bare operators (i.e. not consistently IMSRG evolved), then one needs to be careful about the phase convention.
+The directory PhaseCorrected contains copies of the interaction files SD_e14... which have been corrected to have the same phase convention as
+the one assumed by NuShellX.
+*********************************************************************************************************************************************
 
--------------------------------------------------------------------------------------------------
+
+=================================================================================================
+=================================================================================================
 [1] B. A. Brown and W. D. M. Rae, Nucl. Data Sheets 120, 115 (2014).
